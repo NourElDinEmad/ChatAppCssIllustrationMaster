@@ -1,0 +1,300 @@
+/* Normalize */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Root */
+:root{
+/* Primary */
+  /* Text */
+--Pale-Violet: hsl(276, 100%, 81%); /* sub-heading at the top of the app UI */
+--Moderate-Violet: hsl(276, 55%, 52%);/* chat on the left */
+--Desaturated-Dark-Violet: hsl(271, 15%, 43%);/* chat on the right */
+--Grayish-Blue: hsl(206, 6%, 79%);/* placeholder text */
+--Very-Dark-Desaturated-Violet: hsl(271, 36%, 24%);/* main heading */
+--Dark-Grayish-Violet: hsl(270, 7%, 64%);/* paragraph */
+  /* Gradients */
+    /* These two colors are the vibrant background colors you see throughout the design and are applied as a linear gradient */
+--Light-Magenta: hsl(293, 100%, 63%);
+--Light-Violet: hsl(264, 100%, 61%);
+  /* Secondary */
+--White: hsl(0, 0%, 100%);
+--Light-Grayish-Violet: hsl(270, 20%, 96%); /* app background */
+--Very-Dark-Desaturated-Violet: hsl(271, 36%, 24%); /* submit button background */
+--Very-Light-Magenta: hsl(289, 100%, 72%); /* radio button outline */
+/* Mobile Screen */
+--mobile-curvey: 20px;
+}
+@font-face {
+  font-family: 'Rubik';
+  src: url(font/BaiJamjuree-Medium.ttf);
+}
+body{
+  min-height: 100vh;
+  font-family: 'Rubik';
+  display: grid;
+  place-items: center;
+  background-color: var(--Light-Grayish-Violet);
+}
+h1{
+  width: 0;
+  opacity: 0;
+  position: absolute;
+}
+/* Page Style */
+main{
+  width: 100%;
+}
+section{
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+section::before {
+  content: '';
+  position: fixed;
+  width: 100vw;
+  height: 55%;
+  top: 0;
+  left: -50%;
+  border-radius: 0 0 50% 50%;
+  background-image: linear-gradient(220deg, var(--Light-Magenta),var(--Light-Violet));
+  z-index: -1;
+}
+section::after{
+  content: '';
+  position: fixed;
+  width: 100vw;
+  height: 50%;
+  right: -50%;
+  bottom: 0;
+  border-radius: 50% 50% 0 0;
+  background-color: hsl(206deg 6% 79% / 25%);
+  z-index: -1;
+}
+.container{
+  padding: 50px 0;
+  width: 90%;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 50px;
+}
+/* text-container */
+.text-container{
+  width: 98%;
+  text-align: center;
+}
+.text-container h2{
+  font-size: 2.6em;
+  margin-bottom: 20px;
+  color: var(--Very-Dark-Desaturated-Violet);
+  letter-spacing: 1.5px;
+}
+.text-container p{
+  font-size: 1.06em;
+  color: var(--Dark-Grayish-Violet);
+}
+/* mobile-container */
+.mobile-container{
+  width: 80%;
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+  border-radius: calc(var(--mobile-curvey) + 10px);
+  box-shadow: 0 0 30px var(--Dark-Grayish-Violet);
+}
+.mobile{
+
+  border-radius: var(--mobile-curvey);
+  background-color: var(--Light-Grayish-Violet);
+}
+.mobile-header {
+  padding-bottom: 15px;
+  color: var(--Light-Grayish-Violet);
+  display: grid;
+  grid-template: repeat(2, auto) / 10% 1fr 10%;
+  align-items: center;
+  justify-items: center;
+  background-image: linear-gradient(90deg, var(--Light-Violet), var(--Light-Magenta));
+  border-radius: var(--mobile-curvey) var(--mobile-curvey) 7px 7px;
+}
+.mobile-header::before{
+  content: '';
+  width: 60%;
+  height: 30px;
+  position: relative;
+  top: -10px;
+  grid-area: 1/1/2/4;
+  background-color: white;
+  border-radius: 13px 13px 20px 20px;
+}
+.mobile-header p:first-child{
+  font-weight: 900;
+}
+.mobile-header figure{
+  display: flex;
+  align-items: center;
+  justify-self: flex-start;
+  gap: 13px;
+}
+.mobile-header img{
+  width: 30px;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+.mobile-header figcaption{
+  display: flex;
+  flex-direction: column;
+}
+.mobile-header figcaption .user-name{
+  font-size: 0.65em;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.mobile-header figcaption .user-status{
+  color: var(--Pale-Violet);
+  font-size: 0.55em;
+}
+.mobile-header p:last-child{
+  height: 11px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.mobile-header p:last-child span{
+  width: 3px;
+  height: 3px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.mobile-body{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.mobile-body p{
+  width: fit-content;
+  max-width: 55%;
+  padding: 8px;
+  font-size: 0.5em;
+}
+p.user1{
+  color: var(--Moderate-Violet);
+  background-color: hsl(276deg 55% 52% / 5%);
+  border-radius: 10px 10px 10px 3px;
+}
+.user2{
+  align-self: flex-end;
+}
+p.user2{
+  color: var(--Desaturated-Dark-Violet);
+  background-color: white;
+  border-radius: 10px 10px 3px 10px;
+}
+.mobile-body figure{
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+}
+.mobile-body figure img{
+  width: 30%;
+  border-radius: 10px;
+}
+.half-hour{
+  margin-bottom: 10px;
+}
+.half-hour,
+.one-hour{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+  padding: 8px;
+  background-image: linear-gradient(90deg, var(--Light-Magenta), var(--Light-Violet));
+  border-radius: 10px 10px 10px 3px;
+}
+.mobile-body input[type="radio"]{
+  appearance: none;
+  width: 13px;
+  height: 13px;
+  border: 1px solid var(--Very-Light-Magenta);
+  border-radius: 50%;
+}
+.mobile-body input[type="radio"]:checked{
+  background-image: radial-gradient(var(--Very-Light-Magenta) 50%, transparent 10%);
+}
+.half-hour label,
+.one-hour label{
+  width: 85%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.walk-time{
+  font-size: 0.6em;
+  color: var(--Pale-Violet);
+}
+.walk-price{
+  font-size: 0.8em;
+  font-weight: 700;
+  color: var(--Light-Grayish-Violet);
+}
+.send-message{
+  position: relative;
+}
+.send-message input{
+  width: 100%;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+}
+.send-message input[type="text"]::placeholder{
+  padding-left: 20px;
+  color: var(--Grayish-Blue);
+}
+.send-message button{
+  font-weight: 700;
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: var(--Light-Grayish-Violet);
+  background-color: var(--Very-Dark-Desaturated-Violet);
+  border: none;
+}
+@media (min-width: 768px) {
+  .container{
+    justify-content: center;
+    flex-direction: row-reverse;
+    gap: 100px;
+  }
+  section::before {
+    width: 40vw;
+    height: 85%;
+    top: 0;
+    left: -16%;
+  }
+  section::after{
+    position: fixed;
+    width: 40vw;
+    height: 80%;
+    right: -15%;
+    bottom: 0;
+  }
+  .text-container{
+    width: 37%;
+    text-align: left;
+  }
+  .mobile-container {
+    max-width: 273px;
+  }
+}
